@@ -1,0 +1,122 @@
+﻿@{
+    ViewBag.Title = "UserRecord";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="row">
+    <div class="col-xs-12" style="height:80px; width:100%"></div>
+</div>
+<div class="row">
+    <div class="col-xs-2"></div>
+    <div class="col-xs-10" style="width: 75%; background-color: black;margin-right:0">
+        <h1>Admin<span class="icon fa-angle-double-left"></span>User Record</h1>
+        <ul>
+            <li style="color: black">
+                <input type="text" placeholder="Search By Name" name=" First_Name" id="n" style="height: 40px; width: 20%; border-radius: 5px; font-family: Gabriola; font-size: 22px; margin-top: 10px; " />
+              <input type="text" placeholder="Search By UserName" name=" User_Name" id="u" style="height: 40px; width: 20%; border-radius: 5px; font-family: Gabriola; font-size: 22px; margin-top: 10px; " />
+                <button id ="sea" type="button" onclick="find()"><span class="icon fa-search"></span></button>
+                <script>
+
+                    function find() {
+                        var n = $('#n').val().toString();
+                        var u = $('#u').val().toString();
+
+                        $.getJSON("/Admin/Searcha",
+
+                        {
+                            n: n,
+                            u: u
+
+                        },
+                         function (data) {
+
+                                         console.log(data);
+                             if (data != null) {
+                                 var str = " ";
+                                 for (var i = 0; i < data.length; i++) {
+                                     str += "<tr>";
+                                     str += "<td id='r" + i + "'>" + data[i].Id + "</td>";
+                                     str += "<td id='r" + i + "'>" + data[i].First_Name + "</td>";
+                                     str += "<td id='r" + i + "'>" + data[i].Last_Name + "</td>";
+                                     str += "<td id='r" + i + "'>" + data[i].User_Name + "</td>";
+                                     str += "<td id='r" + i + "'>" + data[i].Email + "</td>";
+                                     str += "<td id='r" + i + "'>" + data[i].Password + "</td>";
+                                     str += "<td id='r" + i + "'>" + data[i].Occupation + "</td>";
+                                     str += "<td id='r" + i + "'>" + data[i].Contact_No + "</td>";
+                                     str += "<td id='r" + i + "'>" + data[i].Alt_No + "</td>";
+                                    str += "<td id='r" + i + "'>" + data[i].D_O_B + "</td>";
+                                     str += "<td id='r" + i + "'>" + data[i].Gender + "</td>";
+                                     str += "</tr>";
+                                 }
+
+                             }
+
+                             else if (data == false) {
+                                 alert("Sorrry no record");
+                             }
+                             $('#t12').html(str);
+                         });
+
+                    };
+                </script>
+
+
+            </li>
+
+
+        </ul>
+        <ul class="nav nav-tabs">
+          
+            <li><a data-toggle="tab" href="#menu1" style="color: gray;">UserRecord List</a></li>
+        </ul>
+        <div class="container">
+            <div class="tab-content">
+                <div id="menu1" class="tab-pane fade in active ">
+                    <div style="overflow:scroll; width:87%; height:250px;">
+                        <div class="row "><div class="col-xs-12">
+                            <table class="table table-inverse" style="margin-top: 10px; width: 1500px; height: auto; background-color: rgba(41, 43, 43, 0.59); ">
+                                    <thead>
+                                        <tr>
+                                            <th>Id</th>
+                                            <th>First Name</th>
+                                             <th>Last Name</th>
+                                            <th>User Name</th>
+                                            <th>E-mail</th>
+                                            <th>Password</th>
+                                            <th>Occupation</th>
+                                            <th>Contact No</th>
+                                            <th>Alt NO</th>
+                                            <th>D.O.B</th>
+                                            <th>Gender</th>
+                                            <th>Operation</th>
+                                        </tr></thead>
+                                <tbody id="t12">
+                                    @foreach (var x in Model)
+                                    {
+                                        <tr>
+                                            <td>@x.Id</td>
+                                            <td>@x.First_Name</td>
+                                            <td>@x.Last_Name</td>
+                                            <td>@x.User_Name</td>
+                                            <td>@x.Email</td>
+                                            <td>@x.Password</td>
+                                            <td>@x.Occupation</td>
+                                            <td>@x.Contact_No</td>
+                                            <td>@x.Alt_No</td>
+                                            <td>@x.D_O_B</td>
+                                            <td>@x.Gender</td>
+                                            <td class="dropdown">
+                                                <button class="btn btn-block dropdown-toggle" type="button" data-toggle="dropdown">
+                                                    Delete</button></td> </tr>
+                                    }
+                                </tbody>
+
+                                  
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

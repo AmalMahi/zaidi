@@ -1,0 +1,381 @@
+﻿@{
+    ViewBag.Title = "Main";
+    Layout = "~/Views/Shared/_LayoutMaster.cshtml";
+}
+<html>
+
+<head>
+    <title>Med-deliver</title>
+    <style type="text/css">
+        .pic {
+            width: 100px;
+            height: 100px;
+            border-radius: 10px;
+        }
+
+        .picbig {
+            width: 0px;
+            position: absolute;
+            -webkit-transition: width 0.3s linear 0s;
+            transition: width 0.3s linear 0s;
+            z-index: 10;
+            border-radius: 10px;
+        }
+
+        .pic:hover + .picbig {
+            width: 200px;
+        }
+    </style>
+
+    <style>
+        .highlight {
+            display: block;
+            position: relative;
+            /*min-height: 800px;*/
+            min-height: 520px;
+            background-repeat: no-repeat;
+            /*padding-top: 200px;*/
+            padding-top: 80px;
+            /*background-size: cover;*/
+        }
+
+
+        .highlight {
+            position: relative;
+            height: 900px;
+            cursor: pointer;
+            background-size: auto 110%;
+            background-position: center center;
+            -moz-transition: background-size 3s ease;
+            -webkit-transition: background-size 3s ease;
+            transition: background-size 3s ease;
+        }
+
+            .highlight:hover {
+                background-size: auto 130%;
+                background-color: white;
+                -moz-transition: background-size 3s ease;
+                -webkit-transition: background-size 3s ease;
+                transition: background-size 3s ease;
+            }
+
+            .highlight:before {
+                content: ' ';
+                position: absolute;
+                left: 0;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                background-color: rgba(0, 0, 0, 0.23); /*ye*/
+                -moz-transition: background-color 3s ease;
+                -webkit-transition: background-color 3s ease;
+                transition: background-color 3s ease;
+            }
+
+            .highlight:hover:before {
+                background-color: rgba(0, 0, 0, 0.23); /*ye*/
+                -moz-transition: background-color 3s ease;
+                -webkit-transition: background-color 3s ease;
+                transition: background-color 3s ease;
+            }
+
+        h2.major {
+            border-bottom: solid 1px #ffffff;
+            padding-bottom: 0.5rem;
+            color: #ffffff;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.2rem;
+            margin-left: 3%;
+            font-size: 30px;
+            margin-top: -17px;
+        }
+
+        p.major {
+            margin: 1rem 0 2rem 0;
+            font-size: 1.5rem;
+            color: white;
+            font-family: 'Adobe kaiti Std';
+            margin-left: 1.5rem;
+            line-height: 1.2;
+            margin-right: 1.5rem;
+            letter-spacing: 0.02rem;
+        }
+
+        a.major {
+            -moz-transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
+            -webkit-transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
+            -ms-transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
+            transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
+            border-bottom: dotted 1px rgba(255, 255, 255, 0.5);
+            text-decoration: none;
+            color: inherit;
+            text-decoration: none;
+        }
+
+        a:hover {
+            border-bottom-color: #34a58e;
+        }
+
+        li.major {
+            margin-top: -25px;
+            text-transform: uppercase;
+            letter-spacing: 0.2rem;
+            font-size: 1.5rem;
+            color: #a8a8bf;
+            font-family: 'Adobe kaiti Std';
+            list-style: none;
+            border-bottom-color: #34a58e;
+        }
+    </style>
+</head>
+<body>
+    <div class="highlight" style="background-image: url(/images/n.png); background-color: white; ">
+        <div class="row" style="margin-left: 20%; margin-right: 20%; color: #505051; font-size: 18px; margin-top: 50px; ">
+            <h1 style="text-align: center; color: #34a58e; font-family: 'Adobe Kaiti Std';font-size:60px;">MED DELIVER</h1>
+            <h2 style=" margin-top: 50px; font-size: 23px; color:#333">Now whenever you need any medicines, save yourself the bother of a trip to the pharmacy. Just a call can get them delivered to your doorstep. Our officers are provided with special containers to make sure the medicine reach you in perfect condition.</h2>
+        </div>
+        <ul class=" nav navbar-nav navbar-center" style="padding-left:28%; margin-top: 40px;margin-right:0; ">
+            <li>
+                <form method="get" action="/Home/Main">
+                    <button style="width: 140px; background-color: rgba(49, 50, 49, 0.66);">Home</button>
+                </form>
+            </li>
+            <li>
+                <button class="md-trigger" data-modal="modal-16" style="width: 140px; background-color: rgba(49, 50, 49, 0.66);margin-bottom:30px; ">About</button>
+            </li>
+            <li>
+                <button class="md-trigger" data-modal="modal-15" style=" width: 140px; background-color: rgba(49, 50, 49, 0.66); margin-bottom: 30px;">Services</button>
+            </li>
+            <li>
+                <button class="md-trigger" data-modal="modal-17" style="width: 140px; background-color: rgba(49, 50, 49, 0.66); ">Order</button>
+            </li>
+        </ul>
+    </div>
+
+    <!--<div style="width:100%;margin-top:-20px;">
+
+        <header id=" mycarousel" class="carousel slide">
+            <!-- Indicators -->
+    <!--<ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+        <li data-target="#myCarousel" data-slide-to="3"></li>
+        <li data-target="#myCarousel" data-slide-to="4"></li>
+    </ol>
+    <!-- Wrapper for Slides -->
+    <!--<div class="carousel-inner">
+        <div class="item active">
+            <!-- Set the first background image using inline CSS below. -->
+    <!--     <div class="fill" style="background-image: url(/images/slider4.jpg); width: 100%; height: 500px;"></div>
+         <div class="carousel-caption">
+             <p style="font-size: 35px; font-family: Gabriola; color: whitesmoke; ">Wherever the art of medicine is loved, there is also a love of humanity.</p>
+             <h2 style="color: whitesmoke; ">Hippocrates</h2>
+         </div>
+     </div>
+     <div class="item">
+         <!-- Set the second background image using inline CSS below. -->
+    <!--    <div class="fill" style="background-image: url(/images/slider2.jpg); width: 100%; height: 500px;"></div>
+        <div class="carousel-caption">
+            <p style="font-size: 35px; font-family: Gabriola; color: whitesmoke; ">Medicine is a science of uncertainty and an art of probability.</p>
+            <h2 style="color: whitesmoke; ">William Osler</h2>
+        </div>
+    </div>
+    <div class="item">
+        <!-- Set the third background image using inline CSS below. -->
+    <!--  <div class="fill" style="background-image: url(/images/slider3.jpg); width: 100%; height: 500px;"></div>
+        <div class="carousel-caption">
+            <p style="font-size: 35px; font-family: Gabriola; color: whitesmoke; ">Therefore in medicine we ought to know the causes of sickness and health. </p>
+            <h2 style="color: whitesmoke; ">Avicenna</h2>
+        </div>
+    </div>
+    <div class="item">
+        <!-- Set the forth background image using inline CSS below. -->
+    <!-- <div class="fill" style="background-image: url(/images/slider4.jpg); width: 100%; height: 500px;"></div>
+        <div class="carousel-caption">
+            <p style="font-size: 35px; font-family: Gabriola; color: whitesmoke; ">The art of medicine consists in amusing the patient while nature cures the disease. </p>
+            <h2 style="color: whitesmoke; ">Voltaire</h2>
+        </div>
+    </div>
+    <div class="item">
+        <!-- Set the fifth background image using inline CSS below. -->
+    <!--<div class="fill" style="background-image: url(/images/slider5.jpg); width: 100%; height: 500px;"></div>
+                    <div class="carousel-caption">
+                        <p style="font-size: 35px; font-family: Gabriola; color: whitesmoke; ">Medicine rests upon four pillars - philosophy, astronomy, alchemy, and ethics.</p>
+                        <h2 style="color: whitesmoke;">Paracelsus</h2>
+                    </div>
+                </div>
+            </div>
+            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                <span class="icon-prev"></span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                <span class="icon-next"></span>
+            </a>
+        </header>
+    </div>
+    <!-- jQuery -->
+    <!--<script src="js/jquery.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <!-- <script src="js/bootstrap.min.js"></script>
+     <!-- Script to Activate the Carousel -->
+    <!--<script>
+        $('.carousel').carousel({
+            interval: 4000 //changes the speed
+        })
+    </script>
+    <div class="clearfix"> </div>
+    <!--<div class="container" style="margin-top:20px;width:100%;">
+        <div class=" col-md-4" style="border: inset; border-color: rgb(245, 245, 245); width: 350px; margin-left: 3.2%; margin-right: 40px; border-radius: 10px; " onmouseover="this.style.background = 'rgba(166, 226, 255, 0.901961)';" onmouseout="    this.style.background = 'white';">
+            <p style="margin-left:60px;"><img src="/images/up.png" width="180" height="140" /></p>
+            <p style="margin-left: 25px; font-size: 15px; font-family: 'Adobe Kaiti Std';">
+                Heavy traffic,lack of parking, monsoons, shop closed,forgetfulness…
+                are some of the reasons that could lead to skipping of vital medications. Since taking medicines regularly is a critical component of managing chronic medical conditions,
+                it's best not to run out of essential medicines. Just log on to netmeds.com, place your order online and have your medicines delivered to you – without leaving the comfort of your home.
+            </p>
+        </div>
+        <div class="col-md-4" style="border: inset; border-color: rgb(245, 245, 245); width: 350px; margin-left: 3.2%; margin-right: 40px; border-radius: 10px; " onmouseover="this.style.background = ' rgba(166, 226, 255, 0.901961)';" onmouseout="    this.style.background = 'white';">
+            <p style="margin-left:50px; margin-top:20px;"><img src="/images/22.png" width="190" height="123" /></p>
+            <p style="margin-left: 25px; margin-right: 5px; font-size: 15px; font-family: 'Adobe Kaiti Std';">
+                At med-deliver.com, we not only provide you with a wide range of medicines listed under various categories,
+                we also offer a wide choice of products including wellness products, vitamins, diet/fitness supplements, herbal products,
+                pain relievers, diabetic care kits, baby/mother care products, beauty care products and surgical supplies at one place.<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </p>
+        </div>
+        <div class="col-md-4" style="border: inset; border-color: rgb(245, 245, 245); width: 350px; margin-left: 3.2%; margin-right: 40px; border-radius: 10px; " onmouseover="this.style.background = 'rgba(166, 226, 255, 0.901961)';" onmouseout="    this.style.background = 'white';">
+            <p style="margin-left:40px;"><img src="/images/0.png" width="220" height="123" /></p>
+            <p style="margin-left: 30px; margin-right: 15px; font-size: 15px; font-family: 'Adobe Kaiti Std';">
+                We are committed to provide safe, reliable and affordable medicines as well as a customer service philosophy that is worthy of our valued customers'loyalty.
+                We offer a superior online shopping experience, which includes easy access to reliable medicine information, you get to know all about your medicine at this place, and once you're a Med-Deliver's customer, you'll get medicines at your comfort level.
+            </p>
+        </div>
+
+    </div>-->
+
+
+    <div class="container">
+        <br />
+        <h2 style="font-size: 30px; color: firebrick;text-align:left; ">Useful Medicines to Keep At Home:</h2>
+        <br />
+        <!-- Left-aligned media object -->
+        <div class="media">
+            <div class="media-left">
+                <img src="/images/ok.jpg" class="pic">
+                <img src="/images/ok.jpg" class="picbig">
+            </div>
+            <div class="media-body">
+                <h1 class="media-heading" style="font-family: Gabriola; color: #34a58e; "><b>Antihistamines</b></h1>
+                <p style="color: black; font-size: 17px; font-family: 'Adobe Kaiti Std'; color: #333; ">These ease the symptoms of   <i style="color:firebrick;">hay fever</i> and other <i style="color:firebrick;">allergies</i> - for example, <i style="color:firebrick;">hives (urticaria), itch</i>, sneezing, watering eyes, and a runny nose. Some <i style="color:firebrick;">antihistamines</i> may cause drowsiness - for example, <i style="color:firebrick;">chlorphenamine (Piriton®).</i>These may be useful for taking at bedtime. There are several types which cause less drowsiness and are better for during the day - for example, <i style="color:firebrick;">loratadine</i> and <i style="color:firebrick;">cetirizine.</i></b></p>
+            </div>
+        </div>
+        <hr> <div class="media">
+            <div class="media-body">
+                <h1 class="media-heading" style="font-family: Gabriola; color: #34a58e; ">
+                    <b> Hydrocortisone Cream</b>
+                </h1>
+
+                <p style="color: black; font-size: 17px; font-family: 'Adobe Kaiti Std';color: #333">Hydrocortisone cream is a mild <i style="color:firebrick;">steroid cream.</i> Steroids reduce inflammation. Hydrocortisone can be bought in pharmacies, to treat <i style="color:firebrick;">inflammation of the skin (dermatitis), insect stings</i> and <i style="color:firebrick;">eczema.</i> Hydrocortisone cream should not be used on the face unless prescribed by your doctor specifically for use on the face.</p>
+            </div>
+            <div class="media-right">
+                <img src="/images/Skin-.jpg" class="pic">
+                <img src="/images/Skin-.jpg" class="picbig">
+            </div>
+        </div>
+        <hr> <div class="media">
+            <div class="media-left">
+                <img src="/images/ear.jpg" class="pic">
+                <img src="/images/ear.jpg" class="picbig">
+            </div>
+            <div class="media-body">
+                <h1 class="media-heading" style="font-family: Gabriola; color: #34a58e; ">
+                    <b> Anti-inflammatory Painkillers</b>
+                </h1> <p style="color: black; font-size: 17px; font-family: 'Adobe Kaiti Std';color: #333">These are <i style="color:firebrick;">painkillers which also reduce inflammation.</i> Most need a prescription but you can buy <i style="color:firebrick;">ibuprofen</i> from pharmacies and supermarkets. This is helpful for <i style="color:firebrick;">muscular aches</i> and sprains and can be used to relieve<i style="color:firebrick;"> period pain.</i> Like paracetamol, ibuprofen also reduces a fever. Ibuprofen also comes in tablet, soluble tablet, melt-in-the-mouth and liquid forms. There are many brands of ibuprofen. The dose advised varies with age. Anti-inflammatory painkillers should not be used by certain people - for example, if you have, or have had, an <i style="color:firebrick;">ulcer.</i> These painkillers should be taken with food if possible. If you get stomach pain or heartburn after taking ibuprofen tablets, you should stop them. Ibuprofen and some other anti-inflammatory painkillers are also available as a gel or foam. These can be rubbed directly into the painful area. They are used for painful joints if you have <i style="color:firebrick;">rheumatoid arthritis</i> or wear-and-tear arthritis (<i style="color:firebrick;">osteoarthritis</i>). They can also be used for <i style="color:firebrick;">sprains</i>and muscle injuries.</p>
+            </div>
+        </div>
+        <hr> <div class="media">
+            <div class="media-body">
+                <h1 class="media-heading" style="font-family: Gabriola; color: #34a58e; ">
+                    <b> Antacids</b>
+                </h1>
+                <p style="color: black; font-size: 17px; font-family: 'Adobe Kaiti Std';color: #333">
+
+                    These help to ease <i style="color:firebrick;">indigestion</i> and <i style="color:firebrick;">heartburn.</i> There are various types of <i style="color:firebrick;">antacids</i> - for example, sodium bicarbonate, <i style="color:firebrick;">magnesium trisilicate, aluminium</i> or<i style="color:firebrick;"> magnesium hydroxide.</i> They work by neutralising the acid content of the stomach. You can also buy more powerful medicines which reduce acid in the stomach - for example, <i style="color:firebrick;">ranitidine</i> and <i style="color:firebrick;">omeprazole.</i>
+
+                </p>
+            </div> <div class="media-right">
+                <img src="/images/heart.jpg" class="pic">
+                <img src="/images/heart.jpg" class="picbig">
+            </div>
+        </div> <hr> <div class="media">
+            <div class="media-left">
+                <img src="/images/b.png" class="pic">
+                <img src="/images/b.png" class="picbig">
+            </div> <div class="media-body">
+                <h1 class="media-heading" style="font-family: Gabriola; color: #34a58e; ">
+                    <b> Paracetamol</b>
+                </h1>
+                <p style="color: black; font-size: 17px; font-family: 'Adobe Kaiti Std';color: #333"><i style="color:firebrick"> Paracetamol</i> eases pain. It also reduces <i style="color:firebrick">high temperature (fever).</i> It comes in tablet form for adults and older children and as a liquid for young children and babies. You can also obtain soluble tablets and melt-in-the-mouth tablets. If you have young children, paracetamol is perhaps the most important medicine to keep in at all times. Paracetamol is safe at normal doses, but is harmful if you take too much (overdose). Therefore, it is extremely important to check the right dose for the person taking paracetamol. Be careful not to exceed the maximum amount recommended on the packet.</p>
+            </div>
+        </div>
+        <hr> <div class="media">
+            <div class="media-body">
+                <h1 class="media-heading" style="font-family: Gabriola; color: #34a58e; ">
+                    <b> Antiseptic Cream</b>
+                </h1> <p style="color: black; font-size: 17px; font-family: 'Adobe Kaiti Std';color: #333">It is useful to have an antiseptic cream at home. If you use this on minor <i style="color:firebrick;">scrapes, cuts</i> and <i style="color:firebrick;">bites,</i> they are less likely to become infected. Commonly available antiseptic creams include <i style="color:firebrick;">Savlon®</i> and <i style="color:firebrick;">Germolene®.</i></p>
+            </div> <div class="media-right">
+                <img src="/images/bite.jpg" class="pic" style="border-radius:10px;"> <img src="/images/bite.jpg" class="picbig" style="border-radius:10px;">
+
+                <br />
+            </div>
+        </div> <hr>
+
+        <div class="container" style="height:auto; width:auto;">
+            <div class=" col-md-4" style="width:35%">
+                <h2 style="font-size:28px; color: black;text-align:left; ">What we really do?</h2>
+                <p style="color: black; font-size: 17px; font-family: 'Adobe Kaiti Std'; color: #333; text-align:left ">
+                    Online Medicines order is an full service online pharmacy in Pakistan with home delivery service offers 2 hours
+                    medicine delivery with in Lahore. You can place your order on skype or our <br />intuitive website to get
+                    medicines at your home.
+                </p>
+            </div>
+
+            <div class=" col-md-4" style="width:30%">
+                <h2 style="font-size:28px; color: black;text-align:left; ">Our Vision</h2>
+                <p style="color: black; font-size: 17px; font-family: 'Adobe Kaiti Std'; color: #333; text-align:left ">
+                    Deliver Health.<br /><br />
+
+                    We are in introductory phase So we aims to deliver authentic products to our customers and save precious lives.
+                </p>
+            </div>
+            <div class=" col-md-4" style="width:35%">
+                <h2 style="font-size:28px; color: black;text-align:left; ">What we really do?</h2>
+                <p style="color: black; font-size: 17px; font-family: 'Adobe Kaiti Std'; color: #333; text-align:left ">
+                    It is your health which is at stake So we will provide you with:
+                    <ul>
+                        <li style="color:black; font-size:15px; ">Support</li>
+                        <li style="color:black; font-size:15px; ">Best Quality</li>
+                        <li style="color:black; font-size:15px; ">Fastest Delivery</li>
+                        <li style="color:black; font-size:15px; ">Customer Care</li>
+
+                    </ul>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="container" style="width:auto; margin-left:8%">
+        <div class=" col-md-8" style="width:70%">
+            <h2 style="font-size:28px; color: black;text-align:left; ">What can we do for you ?</h2>
+            <p style="color: black; font-size: 17px; font-family: 'Adobe Kaiti Std'; color: #333; text-align:left ">
+                Internet has revolutionized the way we buy medicine, health care and sexual well being products. <br />Online Medicine delivery in Pakistan - In Pakistan we are making it possible to get medicines online <br />through home delivery using cash on delivery payment method. Online Medicine delivery in Pakistan-<br /> best way for order in Pakistan not only allow people to buy medicine online without leaving the<br /> comfort of their homes, it also aims to deliver original medicine in Pakistan.
+            </p>
+        </div>
+        <div class=" col-md-4" style="width:30%">
+            <img src="~/images/plus.png" />
+        </div>
+    </div>
+    <br /><br /><br />
+
+</body>
+</html>
